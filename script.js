@@ -17,9 +17,22 @@ const AVAILABLE_SELECTIONS = [
 ];
 
 function getSelectionById(aSelections, sId) {
-  return aSelection.find((oSelection) => oSelection.id === sId);
+  return aSelections.find((oSelection) => oSelection.id === sId);
 }
 
 function computerPlay(aIds) {
   return aIds[Math.floor(Math.random() * aIds.length)];
+}
+
+
+function playGame(oUserSelection, oComputerSelection) {
+	if (oUserSelection.beats.includes(oComputerSelection.id)) {
+		return `You Won! ${oUserSelection.name} beats ${oComputerSelection.name}`;
+	}
+
+	if (oComputerSelection.beats.includes(oUserSelection.id) {
+		return `You Lose! ${oComputerSelection.name} beats ${oUserSelection.name}`;
+	}
+
+	return "Tie!";
 }
