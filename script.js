@@ -1,6 +1,6 @@
 const AVAILABLE_SELECTIONS = [
   {
-    id: "PAPER",
+    id: "PAPPER",
     name: "Papper",
     beats: ["ROCK"],
   },
@@ -12,7 +12,7 @@ const AVAILABLE_SELECTIONS = [
   {
     id: "SCISSORS",
     name: "Scissors",
-    beats: ["PAPER"],
+    beats: ["PAPPER"],
   },
 ];
 
