@@ -16,6 +16,10 @@ const AVAILABLE_SELECTIONS = [
   },
 ];
 
+function getSelectionById(aSelections, sId) {
+  return aSelection.find((oSelection) => oSelection.id === sId);
+}
+
 function computerPlay(aIds) {
   return aIds[Math.floor(Math.random() * aIds.length)];
 }
