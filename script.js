@@ -12,6 +12,6 @@ const AVAILABLE_SELECTIONS = [
   {
     id: "SCISSORS",
     name: "Scissors",
-    beats: "PAPER",
+    beats: ["PAPER"],
   },
 ];
