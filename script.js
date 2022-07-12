@@ -24,6 +24,10 @@ function computerPlay(aIds) {
   return aIds[Math.floor(Math.random() * aIds.length)];
 }
 
+function getIdsFromSelections(aSelection) {
+  return aSelection.map((oSelection) => oSelection.id);
+}
+
 function playRound(oUserSelection, oComputerSelection) {
   if (oUserSelection.beats.includes(oComputerSelection.id)) {
     return {
@@ -43,4 +47,14 @@ function playRound(oUserSelection, oComputerSelection) {
     tie: true,
     message: "Tie!",
   };
+}
+
+function playGame(sUserSelectionId = "SCISSORS") {
+  const oResult = playRound(
+    getSelectionById(AVAILABLE_SELECTIONS, sUserSelectionId),
+    getSelectionById(
+      AVAILABLE_SELECTIONS,
+      computerPlay(getIdsFromSelections(AVAILABLE_SELECTIONS))
+    )
+  );
 }
