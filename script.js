@@ -25,7 +25,7 @@ function computerPlay(aIds) {
 }
 
 
-function playGame(oUserSelection, oComputerSelection) {
+function playRound(oUserSelection, oComputerSelection) {
 	if (oUserSelection.beats.includes(oComputerSelection.id)) {
 		return `You Won! ${oUserSelection.name} beats ${oComputerSelection.name}`;
 	}
