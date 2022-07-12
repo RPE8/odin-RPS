@@ -15,3 +15,7 @@ const AVAILABLE_SELECTIONS = [
     beats: ["PAPER"],
   },
 ];
+
+function computerPlay(aIds) {
+  return aIds[Math.floor(Math.random() * aIds.length)];
+}
