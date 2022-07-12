@@ -24,15 +24,23 @@ function computerPlay(aIds) {
   return aIds[Math.floor(Math.random() * aIds.length)];
 }
 
-
 function playRound(oUserSelection, oComputerSelection) {
-	if (oUserSelection.beats.includes(oComputerSelection.id)) {
-		return `You Won! ${oUserSelection.name} beats ${oComputerSelection.name}`;
-	}
+  if (oUserSelection.beats.includes(oComputerSelection.id)) {
+    return {
+      playerWon: true,
+      message: `You Won! ${oUserSelection.name} beats ${oComputerSelection.name}`,
+    };
+  }
 
-	if (oComputerSelection.beats.includes(oUserSelection.id) {
-		return `You Lose! ${oComputerSelection.name} beats ${oUserSelection.name}`;
-	}
+  if (oComputerSelection.beats.includes(oUserSelection.id)) {
+    return {
+      playerWon: false,
+      message: `You Lose! ${oComputerSelection.name} beats ${oUserSelection.name}`,
+    };
+  }
 
-	return "Tie!";
+  return {
+    tie: true,
+    message: "Tie!",
+  };
 }
