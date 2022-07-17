@@ -68,4 +68,25 @@ function playGame(sUserSelectionId = "SCISSORS") {
       computerPlay(getIdsFromSelections(AVAILABLE_SELECTIONS))
     )
   );
+
+  if (oResult.playerWon) {
+    addToPlayerScore();
+  } else if (oResult.tie) {
+  } else {
+    addToComputerScore();
+  }
+}
+
+function addScore(element) {
+  element.textContent = Number(element.textContent) + 1;
+}
+
+function addToPlayerScore() {
+  const element = document.getElementById("player-score");
+  addScore(element);
+}
+
+function addToComputerScore() {
+  const element = document.getElementById("computer-score");
+  addScore(element);
 }
