@@ -16,6 +16,9 @@ const AVAILABLE_SELECTIONS = [
   },
 ];
 
+let iPlayerScore = 0;
+let iComputerScore = 0;
+
 function onLoad() {
   document.querySelectorAll(".user-selection").forEach((selection) => {
     selection.addEventListener("click", (event) => {
@@ -89,19 +92,29 @@ function playGame(
     addToComputerScore();
   }
 
+  if (iPlayerScore === 5) {
+    alert("Player won!");
+  }
+
+  if (iComputerScore === 5) {
+    alert("Computer won!");
+  }
+
   return this;
 }
 
-function addScore(element) {
-  element.textContent = Number(element.textContent) + 1;
+function addScore(element, iComputerScore) {
+  element.textContent = Number(iComputerScore);
 }
 
 function addToPlayerScore() {
+  iPlayerScore++;
   const element = document.getElementById("player-score");
-  addScore(element);
+  addScore(element, iPlayerScore);
 }
 
 function addToComputerScore() {
+  iComputerScore++;
   const element = document.getElementById("computer-score");
-  addScore(element);
+  addScore(element, iComputerScore);
 }
