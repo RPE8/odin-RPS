@@ -16,6 +16,17 @@ const AVAILABLE_SELECTIONS = [
   },
 ];
 
+function onLoad() {
+  document.querySelectorAll(".user-selection").forEach((selection) => {
+    selection.addEventListener("click", (event) => {
+      event.stopPropagation();
+      playGame(event.currentTarget.getAttribute("data-key"));
+    });
+  });
+}
+
+window.addEventListener("load", onLoad);
+
 function getSelectionById(aSelections, sId) {
   return aSelections.find((oSelection) => oSelection.id === sId);
 }
