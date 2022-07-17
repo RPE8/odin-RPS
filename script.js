@@ -20,7 +20,15 @@ function onLoad() {
   document.querySelectorAll(".user-selection").forEach((selection) => {
     selection.addEventListener("click", (event) => {
       event.stopPropagation();
-      playGame(event.currentTarget.getAttribute("data-key"));
+      const userSelection = event.currentTarget;
+      const sComputerPlay = computerPlay(
+        getIdsFromSelections(AVAILABLE_SELECTIONS)
+      );
+      userSelection.classList.add("selection");
+      document
+        .querySelector(`#computer-list [data-key='sComputerPlay']`)
+        .classList.add("selection");
+      playGame(userSelection.getAttribute("data-key"), sComputerPlay);
     });
   });
 }
@@ -60,13 +68,13 @@ function playRound(oUserSelection, oComputerSelection) {
   };
 }
 
-function playGame(sUserSelectionId = "SCISSORS") {
+function playGame(
+  sUserSelectionId = "SCISSORS",
+  sComputerSelection = "SCISSORS"
+) {
   const oResult = playRound(
     getSelectionById(AVAILABLE_SELECTIONS, sUserSelectionId),
-    getSelectionById(
-      AVAILABLE_SELECTIONS,
-      computerPlay(getIdsFromSelections(AVAILABLE_SELECTIONS))
-    )
+    getSelectionById(AVAILABLE_SELECTIONS, sComputerSelection)
   );
 
   if (oResult.playerWon) {
@@ -75,6 +83,8 @@ function playGame(sUserSelectionId = "SCISSORS") {
   } else {
     addToComputerScore();
   }
+
+  return this;
 }
 
 function addScore(element) {
