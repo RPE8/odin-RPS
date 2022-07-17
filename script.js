@@ -20,6 +20,11 @@ function onLoad() {
   document.querySelectorAll(".user-selection").forEach((selection) => {
     selection.addEventListener("click", (event) => {
       event.stopPropagation();
+
+      document.querySelectorAll(".selection").forEach((element) => {
+        element.classList.remove("selection");
+      });
+
       const userSelection = event.currentTarget;
       const sComputerPlay = computerPlay(
         getIdsFromSelections(AVAILABLE_SELECTIONS)
