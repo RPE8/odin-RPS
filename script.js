@@ -26,7 +26,7 @@ function onLoad() {
       );
       userSelection.classList.add("selection");
       document
-        .querySelector(`#computer-list [data-key='sComputerPlay']`)
+        .querySelector(`#computer-list [data-key='${sComputerPlay}']`)
         .classList.add("selection");
       playGame(userSelection.getAttribute("data-key"), sComputerPlay);
     });
