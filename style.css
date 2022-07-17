@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -26,10 +27,27 @@ main {
   justify-content: center;
 }
 
+#game {
+  margin: 10px;
+}
+#game > * {
+  margin: 10px;
+}
+
 .list {
   list-style-type: none;
   display: flex;
+  gap: 10px;
   flex-wrap: wrap;
+}
+
+.list > li {
+  display: flex;
+}
+
+.selection > img {
+  border: lightblue 4px solid;
+  box-shadow: 0 0 10px lightblue;
 }
 
 img {
